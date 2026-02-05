@@ -1,0 +1,182 @@
+:root{
+  --menu-width: 12%;
+  --header-height: 120px;
+  --article-width: 240px;
+}
+
+/* base */
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: #ffffff;
+  color: #111;
+}
+
+/* makes anchor jumps land below the fixed header */
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+/* LEFT JUMP MENU */
+#jumpMenu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--menu-width);
+  height: 100vh;
+  background: #d2a227;           /* gold-ish like example */
+  padding: 12px 10px;
+  border-right: 2px solid #999;
+  overflow-y: auto;
+  text-align: center;
+}
+
+#jumpMenu h2{
+  margin: 0 0 12px 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+#jumpMenu a{
+  display: block;
+  margin: 8px 0;               /* spaced-out links like screenshot */
+  font-size: 18px;
+  line-height: 1.2;
+  text-decoration: underline;
+  color: #1a2bd6;
+}
+
+/* MAIN AREA (everything to the right of jump menu) */
+main{
+  margin-left: var(--menu-width);
+  padding-bottom: 120px;        /* so footer doesn’t get hidden behind thank-you */
+}
+
+/* FIXED HEADER */
+header{
+  position: fixed;
+  top: 0;
+  left: var(--menu-width);
+  width: calc(100% - var(--menu-width));
+  height: var(--header-height);
+  z-index: 10;
+  background: #ff0000;          /* red bar */
+  border-bottom: 3px solid #1a2bd6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* "MyBlog.com" */
+header p{
+  margin: 0;
+  font-size: 26px;
+  font-weight: 500;
+  color: #000;
+  /* If you want the script-like feel, keep Brush Script MT ONLY */
+  font-family: "Comic Sans MS";
+}
+
+/* nav row */
+header nav{
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+/* IMPORTANT: your HTML uses <button href="..."> (href doesn’t work on button)
+   but we can still STYLE them to look like the screenshot */
+header button{
+  width: 260px;
+  padding: 12px 0;
+  font-size: 18px;
+  color: #fff;
+  background: #0017ff;          /* blue buttons */
+  border: 0;
+  cursor: pointer;
+}
+
+/* black separators between buttons */
+header button + button{
+  border-left: 40px solid #000;
+}
+
+/* PAGE TITLE */
+main > h1{
+  margin: calc(var(--header-height) + 40px) 0 40px 0;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+/* ARTICLES LAYOUT (no “cards”) */
+#container{
+  padding: 0 20px 60px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* EACH ARTICLE: FIXED WIDTH, NO BACKGROUND/BORDER */
+#container article{
+  width: var(--article-width);
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  /* makes jump land so title is visible below fixed header */
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+/* Article title should be LEFT aligned and same font family as body text */
+#container article h2{
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body text */
+#container article p{
+  margin: 0 0 14px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#container article a{
+  color: #1a2bd6;
+  text-decoration: underline;
+}
+
+/* THANK YOU BOX fixed bottom-right */
+#thanks{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  background: #87cefa;          /* light blue like screenshot */
+  border: 2px solid #333;
+  padding: 18px 26px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 26px;
+  margin: 0;
+}
+
+/* Footer (not graded, but keep readable) */
+footer{
+  padding: 20px 60px 40px;
+}
